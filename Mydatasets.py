@@ -23,7 +23,7 @@ def z_score(data):
 
 class TrainSets(Dataset):
     def __init__(self):
-        train_data = np.loadtxt('./data/liver_diff_train.txt', delimiter='\t')
+        train_data = np.loadtxt('./data/liver_all_train1.txt', delimiter='\t')
         self.x = train_data[:, 1:]
         self.y = train_data[:, 0]
         self.len = len(train_data)
@@ -38,7 +38,7 @@ class TrainSets(Dataset):
 
 class ValidateSets(Dataset):
     def __init__(self):
-        validata_data = np.loadtxt('./data/liver_diff_val_cuttest.txt', delimiter='\t')
+        validata_data = np.loadtxt('./data/liver_all_val_cuttest.txt', delimiter='\t')
         self.x = validata_data[:, 1:]
         self.y = validata_data[:, 0]
         self.len = len(validata_data)
@@ -52,7 +52,7 @@ class ValidateSets(Dataset):
 
 class TestdataSets(Dataset):
     def __init__(self):
-        test_data = np.loadtxt('./data/liver_diff_test.txt', delimiter='\t')
+        test_data = np.loadtxt('./data/liver_all_test1.txt', delimiter='\t')
         self.x = test_data[:, 1:]
         self.y = test_data[:, 0]
         self.len = len(test_data)
