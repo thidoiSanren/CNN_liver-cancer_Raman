@@ -4,6 +4,6 @@
 
 **model_vgg.py:** the model of vgg
 
-**Mydatasets:** creat the train set, validation set, test set
+**Mydatasets:** create the train set, validation set, test set
 
 **liver_all_test:** test the model
