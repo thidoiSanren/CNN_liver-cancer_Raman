@@ -17,7 +17,7 @@ def main():
     model_name = "vgg16"
     net = vgg(model_name=model_name, num_classes=2, init_weights=True)
     net.to(device)
-    weights_path = "liver_diff_threedata_epoch10.pth"
+    weights_path = "VGG16.pth"
     net.load_state_dict(torch.load(weights_path, map_location=device))
 
     net.eval()

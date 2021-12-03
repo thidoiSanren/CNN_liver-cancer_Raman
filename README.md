@@ -1,9 +1,20 @@
-# CNN_liver-cancer_Raman
+# CNN_liver_cancer_Raman
 
-**liver_all_train.py:** train the model
+The convolutional neural network (CNN) in this repo is used to identify the Raman spectra of liver tissue samples with different pathologic types.
 
-**model_vgg.py:** the model of vgg
+This repository is adapted from the codebase used to produce the results in the paper "Histopathological diagnosis of liver cancer based on Raman spectroscopy and deep learning."
 
-**Mydatasets:** create the train set, validation set, test set
+# This repo should contain the following files:
 
-**liver_all_test:** test the model
+**datasets**  containing the code for  setting up datasets
+
+**model_vgg.py**  containing VGG-16-based CNN model
+
+**Raman_training.py**  containing the code for loading the dataset, training and validating the CNN model 
+
+**Raman_testing**  containing the code for testing the CNN model and giving a classification result 
+
+
+
+
+

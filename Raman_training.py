@@ -23,6 +23,8 @@ def main():
     train_acc_list = []
     val_loss_list = []
     val_acc_list = []
+    best_acc = 0.0
+    save_path = './VGG16.pth'
     train_num = len(traindata)
     val_num = len(validatadata)
     model_name = "vgg16"
@@ -30,9 +32,7 @@ def main():
     net.to(device)
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
-
     epochs = 15
-
     train_steps = len(train_loader)
     val_steps = len(validata_loader)
     for epoch in range(epochs):
@@ -85,6 +85,9 @@ def main():
             val_acc_list.append(val_accurate)
             print('[epoch %d] batch: %.1f train_loss: %.3f  val_loss: %.3f train_accuracy: %.3f val_accuracy: %.3f' %
                   (epoch + 1, batch, loss, valing_loss / val_steps, train_acc / train_num, val_accurate))
+            if val_accurate > best_acc:
+                best_acc = val_accurate
+                torch.save(net.state_dict(), save_path)
             batch += 1
 
     x1 = range(0, train_steps * epochs)
