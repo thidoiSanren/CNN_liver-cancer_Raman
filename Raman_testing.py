@@ -1,4 +1,3 @@
-import torch.nn as nn
 import torch
 import torch.utils.data as Data
 from Mydatasets import TestdataSets
