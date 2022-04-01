@@ -1,7 +1,7 @@
 import torch.nn as nn
 from model_vgg import vgg
 import torch.optim as optim
-from Mydatasets import TrainSets, ValidateSets
+from datasets import TrainSets, ValidateSets
 import torch
 import torch.utils.data as Data
 from torch.autograd import Variable
