@@ -15,10 +15,10 @@ def main():
     print("using {} device.".format(device))
 
     traindata = TrainSets()
-    validatadata = ValidateSets()
+    validatedata = ValidateSets()
     batchsize=128
     train_loader = Data.DataLoader(dataset=traindata, batch_size=batchsize, drop_last=False, shuffle=True, num_workers=4)
-    validata_loader = Data.DataLoader(dataset=validatadata, shuffle=True, drop_last=False, num_workers=0)
+    validate_loader = Data.DataLoader(dataset=validatedata, shuffle=True, drop_last=False, num_workers=0)
     train_loss_list = []
     train_acc_list = []
     val_loss_list = []
@@ -26,7 +26,7 @@ def main():
     best_acc = 0.0
     save_path = './VGG16.pth'
     train_num = len(traindata)
-    val_num = len(validatadata)
+    val_num = len(validatedata)
     model_name = "vgg16"
     net = vgg(model_name=model_name, num_classes=2, init_weights=True)
     net.to(device)
@@ -34,7 +34,7 @@ def main():
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
     epochs = 15
     train_steps = len(train_loader)
-    val_steps = len(validata_loader)
+    val_steps = len(validate_loader)
     for epoch in range(epochs):
         batch = 1
         train_bar = tqdm(train_loader)
@@ -56,7 +56,7 @@ def main():
             train_acc = 0.0
             valing_loss = 0.0
             with torch.no_grad():
-                val_bar = tqdm(validata_loader)
+                val_bar = tqdm(validate_loader)
                 for step, (b_x, b_y) in enumerate(train_bar, start=0):
                     b_x = torch.tensor(b_x, dtype=torch.float32)
                     b_y = b_y.to(dtype=torch.float)
