@@ -30,6 +30,19 @@ def main():
     model_name = "vgg16"
     net = vgg(model_name=model_name, num_classes=2, init_weights=True)
     net.to(device)
+    
+    '''
+    # Weight balancing is applicable for imbalanced datasets 
+    # The num1 is the number of group 0.
+    # The num2 is the number of group 1.
+    weights = torch.tensor([num1, num2], dtype=torch.float32)     
+    weights = weights / weights.sum()
+    weights = 1.0 / weights
+    weights = weights / weights.sum()
+    print(weights)
+    weights = torch.tensor(weights, dtype=torch.float32).to(device)
+    '''
+    
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
     epochs = 15
