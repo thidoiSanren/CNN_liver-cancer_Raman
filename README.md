@@ -14,7 +14,8 @@ This repository is adapted from the codebase used to produce the results in the 
 
 **Raman_testing**  containing the code for testing the CNN model and giving a classification result 
 
-**Demo data**  containing spectral data collected from liver cancer and adjacent non-tumour tissue. In demo data, data from cancer tissues were labelled as "1", while data from paracancer tissues were labelled as "0" 
+**Demo data**  containing spectral data collected from liver cancer and adjacent non-tumour tissue
+In demo data, data from cancer tissues were labelled as "1", while data from paracancer tissues were labelled as "0" 
 
 
 
